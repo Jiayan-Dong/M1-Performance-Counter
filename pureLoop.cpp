@@ -19,7 +19,7 @@
 #include <vector>
 #include <time.h>
 
-int a[10000];
+int a[1000000];
 
 int sum() {
     int s = 0;
