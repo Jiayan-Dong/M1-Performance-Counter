@@ -71,22 +71,25 @@ void pretty_print( std::string name, std::pair<performance_counters, performance
 
 int main() {
     setup_performance_counters();
+    genRand();
     performance_counters agg_min{1e300};
     performance_counters agg_avg{0.0};
     for (size_t i = 0; i < 10; i++) {
-        genRand();
         double ts = randnum();
+        /*
         if (ts == 0) {
             printf("bug\n");
         }
+        */
     }
     for (size_t i = 0; i < 100; i++) {
-        genRand();
         performance_counters start = get_counters();
         double ts = randnum();
+        /*
         if (ts == 0) {
         printf("bug\n");
         }
+        */
         performance_counters end = get_counters();
         performance_counters diff = end - start;
         agg_min = agg_min.min(diff);
