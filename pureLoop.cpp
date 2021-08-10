@@ -17,6 +17,9 @@
 #include <sstream>
 #include <stdio.h>
 #include <vector>
+#include <time.h>
+
+int a[10000];
 
 int sum() {
     int s = 0;
@@ -25,6 +28,19 @@ int sum() {
     return s;
 }
 
+void genRand(){
+    srand(time(NULL));
+    for(int i = 0; i < 10000; ++i)
+        a[i] = rand() % 2;
+}
+
+int randnum(){
+    int s = 0;
+    for(int i = 0; i < 10000; ++i)
+        if(a[i])
+            s++;
+    return s;
+} 
 
 void pretty_print( std::string name, std::pair<performance_counters, performance_counters> result) {
     printf(" %32s ", name.c_str());
@@ -58,14 +74,16 @@ int main() {
     performance_counters agg_min{1e300};
     performance_counters agg_avg{0.0};
     for (size_t i = 0; i < 10; i++) {
-        double ts = sum();
+        genRand();
+        double ts = randnum();
         if (ts == 0) {
             printf("bug\n");
         }
     }
     for (size_t i = 0; i < 100; i++) {
+        genRand();
         performance_counters start = get_counters();
-        double ts = sum();
+        double ts = randnum();
         if (ts == 0) {
         printf("bug\n");
         }
