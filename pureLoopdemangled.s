@@ -1,8 +1,8 @@
 	.section	__TEXT,__text,regular,pure_instructions
 	.build_version macos, 11, 0	sdk_version 11, 3
-	.globl	__Z3sumv                        ; -- Begin function _Z3sumv
+	.globl	sum()                        ; -- Begin function _Z3sumv
 	.p2align	2
-__Z3sumv:                               ; @_Z3sumv
+sum():                               ; @_Z3sumv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -30,9 +30,9 @@ LBB0_4:
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__Z7genRandv                    ; -- Begin function _Z7genRandv
+	.globl	genRand()                    ; -- Begin function _Z7genRandv
 	.p2align	2
-__Z7genRandv:                           ; @_Z7genRandv
+genRand():                           ; @_Z7genRandv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -73,9 +73,9 @@ LBB1_4:
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__Z7randnumv                    ; -- Begin function _Z7randnumv
+	.globl	randnum()                    ; -- Begin function _Z7randnumv
 	.p2align	2
-__Z7randnumv:                           ; @_Z7randnumv
+randnum():                           ; @_Z7randnumv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -114,9 +114,9 @@ LBB2_6:
 lCPI3_0:
 	.quad	0x4059000000000000              ; double 100
 	.section	__TEXT,__text,regular,pure_instructions
-	.globl	__Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairI20performance_countersS7_EE
+	.globl	pretty_print(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::pair<performance_counters, performance_counters>)
 	.p2align	2
-__Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairI20performance_countersS7_EE: ; @_Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairI20performance_countersS7_EE
+pretty_print(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::pair<performance_counters, performance_counters>): ; @_Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairI20performance_countersS7_EE
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #80                     ; =80
@@ -126,7 +126,7 @@ __Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN
 	.cfi_offset w30, -8
 	.cfi_offset w29, -16
 	stur	x1, [x29, #-8]                  ; 8-byte Folded Spill
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::c_str() const
 	adrp	x8, l_.str@PAGE
 	add	x8, x8, l_.str@PAGEOFF
 	stur	x0, [x29, #-16]                 ; 8-byte Folded Spill
@@ -253,7 +253,7 @@ __Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::c_str() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -264,7 +264,7 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv: ; @_Z
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::data() const
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
 	ret
@@ -297,16 +297,16 @@ Lfunc_begin0:
 	add	x8, sp, #176                    ; =176
 	stur	wzr, [x29, #-20]
 	str	x8, [sp, #32]                   ; 8-byte Folded Spill
-	bl	__Z26setup_performance_countersv
-	bl	__Z7genRandv
+	bl	setup_performance_counters()
+	bl	genRand()
 	sub	x0, x29, #64                    ; =64
 	adrp	x8, lCPI5_1@PAGE
 	ldr	d0, [x8, lCPI5_1@PAGEOFF]
-	bl	__ZN20performance_countersC1Ed
+	bl	performance_counters::performance_counters(double)
 	sub	x8, x29, #96                    ; =96
 	mov	x0, x8
 	movi.2d	v0, #0000000000000000
-	bl	__ZN20performance_countersC1Ed
+	bl	performance_counters::performance_counters(double)
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	xzr, [x8, #88]
 LBB5_1:                                 ; =>This Inner Loop Header: Depth=1
@@ -315,7 +315,7 @@ LBB5_1:                                 ; =>This Inner Loop Header: Depth=1
 	cmp	x9, #10                         ; =10
 	b.hs	LBB5_4
 ; %bb.2:                                ;   in Loop: Header=BB5_1 Depth=1
-	bl	__Z7randnumv
+	bl	randnum()
 	scvtf	d0, w0
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	d0, [x8, #80]
@@ -334,7 +334,7 @@ LBB5_5:                                 ; =>This Inner Loop Header: Depth=1
 	cmp	x9, #100                        ; =100
 	b.hs	LBB5_8
 ; %bb.6:                                ;   in Loop: Header=BB5_5 Depth=1
-	bl	__Z12get_countersv
+	bl	get_counters()
 	sub	x1, x29, #152                   ; =152
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	d0, [x8, #40]
@@ -342,11 +342,11 @@ LBB5_5:                                 ; =>This Inner Loop Header: Depth=1
 	str	d2, [x8, #56]
 	str	d3, [x8, #64]
 	str	x1, [sp, #24]                   ; 8-byte Folded Spill
-	bl	__Z7randnumv
+	bl	randnum()
 	scvtf	d0, w0
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	d0, [x8, #32]
-	bl	__Z12get_countersv
+	bl	get_counters()
 	add	x0, sp, #176                    ; =176
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	d0, [x8]
@@ -354,7 +354,7 @@ LBB5_5:                                 ; =>This Inner Loop Header: Depth=1
 	str	d2, [x8, #16]
 	str	d3, [x8, #24]
 	ldr	x1, [sp, #24]                   ; 8-byte Folded Reload
-	bl	__ZmiRK20performance_countersS1_
+	bl	operator-(performance_counters const&, performance_counters const&)
 	add	x8, sp, #144                    ; =144
 	str	d0, [sp, #144]
 	str	d1, [sp, #152]
@@ -363,7 +363,7 @@ LBB5_5:                                 ; =>This Inner Loop Header: Depth=1
 	sub	x0, x29, #64                    ; =64
 	mov	x1, x8
 	str	x8, [sp, #16]                   ; 8-byte Folded Spill
-	bl	__ZN20performance_counters3minERKS_
+	bl	performance_counters::min(performance_counters const&)
 	ldr	q4, [x0]
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	str	q4, [x8, #128]
@@ -371,7 +371,7 @@ LBB5_5:                                 ; =>This Inner Loop Header: Depth=1
 	str	q4, [x8, #144]
 	sub	x0, x29, #96                    ; =96
 	ldr	x1, [sp, #16]                   ; 8-byte Folded Reload
-	bl	__ZN20performance_counterspLERKS_
+	bl	performance_counters::operator+=(performance_counters const&)
 ; %bb.7:                                ;   in Loop: Header=BB5_5 Depth=1
 	ldr	x8, [sp, #32]                   ; 8-byte Folded Reload
 	ldr	x9, [x8, #72]
@@ -384,35 +384,35 @@ LBB5_8:
 	adrp	x9, lCPI5_0@PAGE
 	ldr	d0, [x9, lCPI5_0@PAGEOFF]
 	str	x8, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZN20performance_countersdVEd
+	bl	performance_counters::operator/=(double)
 	sub	x8, x29, #64                    ; =64
 	mov	x0, x8
 	fmov	d0, #1.00000000
 	str	x8, [sp]                        ; 8-byte Folded Spill
-	bl	__ZN20performance_countersdVEd
+	bl	performance_counters::operator/=(double)
 	add	x8, sp, #120                    ; =120
 	mov	x0, x8
 	adrp	x1, l_.str.8@PAGE
 	add	x1, x1, l_.str.8@PAGEOFF
-	bl	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<std::nullptr_t>(char const*)
 Ltmp2:
 	add	x8, sp, #56                     ; =56
 	ldr	x9, [sp]                        ; 8-byte Folded Reload
 	mov	x0, x9
 	ldr	x1, [sp, #8]                    ; 8-byte Folded Reload
-	bl	__ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS4_IT0_E4typeEEEOS5_OS8_
+	bl	std::__1::pair<std::__1::__unwrap_ref_decay<performance_counters&>::type, std::__1::__unwrap_ref_decay<performance_counters&>::type> std::__1::make_pair<performance_counters&, performance_counters&>(performance_counters&, performance_counters&)
 Ltmp3:
 	b	LBB5_9
 LBB5_9:
 Ltmp4:
 	add	x0, sp, #120                    ; =120
 	add	x1, sp, #56                     ; =56
-	bl	__Z12pretty_printNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4pairI20performance_countersS7_EE
+	bl	pretty_print(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::pair<performance_counters, performance_counters>)
 Ltmp5:
 	b	LBB5_10
 LBB5_10:
 	add	x0, sp, #120                    ; =120
-	bl	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::~basic_string()
 	mov	w8, #0
 	mov	x0, x8
 	ldp	x29, x30, [sp, #368]            ; 16-byte Folded Reload
@@ -425,7 +425,7 @@ Ltmp6:
 	str	x0, [sp, #48]
 	str	w1, [sp, #44]
 	add	x0, sp, #120                    ; =120
-	bl	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::~basic_string()
 ; %bb.12:
 	ldr	x0, [sp, #48]
 	bl	__Unwind_Resume
@@ -456,10 +456,10 @@ Lcst_end0:
 	.p2align	2
                                         ; -- End function
 	.section	__TEXT,__text,regular,pure_instructions
-	.globl	__ZN20performance_countersC1Ed  ; -- Begin function _ZN20performance_countersC1Ed
-	.weak_def_can_be_hidden	__ZN20performance_countersC1Ed
+	.globl	performance_counters::performance_counters(double)  ; -- Begin function _ZN20performance_countersC1Ed
+	.weak_def_can_be_hidden	performance_counters::performance_counters(double)
 	.p2align	2
-__ZN20performance_countersC1Ed:         ; @_ZN20performance_countersC1Ed
+performance_counters::performance_counters(double):         ; @_ZN20performance_countersC1Ed
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -474,7 +474,7 @@ __ZN20performance_countersC1Ed:         ; @_ZN20performance_countersC1Ed
 	ldr	d0, [sp, #16]
 	mov	x0, x8
 	str	x8, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZN20performance_countersC2Ed
+	bl	performance_counters::performance_counters(double)
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
@@ -482,10 +482,10 @@ __ZN20performance_countersC1Ed:         ; @_ZN20performance_countersC1Ed
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZmiRK20performance_countersS1_ ; -- Begin function _ZmiRK20performance_countersS1_
-	.weak_definition	__ZmiRK20performance_countersS1_
+	.globl	operator-(performance_counters const&, performance_counters const&) ; -- Begin function _ZmiRK20performance_countersS1_
+	.weak_definition	operator-(performance_counters const&, performance_counters const&)
 	.p2align	2
-__ZmiRK20performance_countersS1_:       ; @_ZmiRK20performance_countersS1_
+operator-(performance_counters const&, performance_counters const&):       ; @_ZmiRK20performance_countersS1_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -517,7 +517,7 @@ __ZmiRK20performance_countersS1_:       ; @_ZmiRK20performance_countersS1_
 	ldr	d4, [x8, #24]
 	fsub	d3, d3, d4
 	add	x0, sp, #16                     ; =16
-	bl	__ZN20performance_countersC1Edddd
+	bl	performance_counters::performance_counters(double, double, double, double)
 	ldr	d0, [sp, #16]
 	ldr	d1, [sp, #24]
 	ldr	d2, [sp, #32]
@@ -527,10 +527,10 @@ __ZmiRK20performance_countersS1_:       ; @_ZmiRK20performance_countersS1_
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_counters3minERKS_ ; -- Begin function _ZN20performance_counters3minERKS_
-	.weak_definition	__ZN20performance_counters3minERKS_
+	.globl	performance_counters::min(performance_counters const&) ; -- Begin function _ZN20performance_counters3minERKS_
+	.weak_definition	performance_counters::min(performance_counters const&)
 	.p2align	2
-__ZN20performance_counters3minERKS_:    ; @_ZN20performance_counters3minERKS_
+performance_counters::min(performance_counters const&):    ; @_ZN20performance_counters3minERKS_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -624,10 +624,10 @@ LBB8_12:
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_counterspLERKS_ ; -- Begin function _ZN20performance_counterspLERKS_
-	.weak_definition	__ZN20performance_counterspLERKS_
+	.globl	performance_counters::operator+=(performance_counters const&) ; -- Begin function _ZN20performance_counterspLERKS_
+	.weak_definition	performance_counters::operator+=(performance_counters const&)
 	.p2align	2
-__ZN20performance_counterspLERKS_:      ; @_ZN20performance_counterspLERKS_
+performance_counters::operator+=(performance_counters const&):      ; @_ZN20performance_counterspLERKS_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -660,10 +660,10 @@ __ZN20performance_counterspLERKS_:      ; @_ZN20performance_counterspLERKS_
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_countersdVEd  ; -- Begin function _ZN20performance_countersdVEd
-	.weak_definition	__ZN20performance_countersdVEd
+	.globl	performance_counters::operator/=(double)  ; -- Begin function _ZN20performance_countersdVEd
+	.weak_definition	performance_counters::operator/=(double)
 	.p2align	2
-__ZN20performance_countersdVEd:         ; @_ZN20performance_countersdVEd
+performance_counters::operator/=(double):         ; @_ZN20performance_countersdVEd
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -693,7 +693,7 @@ __ZN20performance_countersdVEd:         ; @_ZN20performance_countersdVEd
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
-__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc: ; @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<std::nullptr_t>(char const*): ; @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -708,7 +708,7 @@ __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc: ; @_
 	ldr	x1, [sp, #16]
 	mov	x0, x8
 	str	x8, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<std::nullptr_t>(char const*)
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
@@ -717,7 +717,7 @@ __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc: ; @_
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS4_IT0_E4typeEEEOS5_OS8_
-__ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS4_IT0_E4typeEEEOS5_OS8_: ; @_ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS4_IT0_E4typeEEEOS5_OS8_
+std::__1::pair<std::__1::__unwrap_ref_decay<performance_counters&>::type, std::__1::__unwrap_ref_decay<performance_counters&>::type> std::__1::make_pair<performance_counters&, performance_counters&>(performance_counters&, performance_counters&): ; @_ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_decayIT_E4typeENS4_IT0_E4typeEEEOS5_OS8_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -730,26 +730,26 @@ __ZNSt3__1L9make_pairIR20performance_countersS2_EENS_4pairINS_18__unwrap_ref_dec
 	stur	x1, [x29, #-16]
 	ldur	x0, [x29, #-8]
 	str	x8, [sp, #24]                   ; 8-byte Folded Spill
-	bl	__ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
+	bl	performance_counters& std::__1::forward<performance_counters&>(std::__1::remove_reference<performance_counters&>::type&)
 	ldur	x8, [x29, #-16]
 	str	x0, [sp, #16]                   ; 8-byte Folded Spill
 	mov	x0, x8
-	bl	__ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
+	bl	performance_counters& std::__1::forward<performance_counters&>(std::__1::remove_reference<performance_counters&>::type&)
 	ldr	x1, [sp, #24]                   ; 8-byte Folded Reload
 	str	x0, [sp, #8]                    ; 8-byte Folded Spill
 	mov	x0, x1
 	ldr	x1, [sp, #16]                   ; 8-byte Folded Reload
 	ldr	x2, [sp, #8]                    ; 8-byte Folded Reload
-	bl	__ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_
+	bl	std::__1::pair<performance_counters, performance_counters>::pair<performance_counters&, performance_counters&, false>(performance_counters&, performance_counters&)
 	ldp	x29, x30, [sp, #48]             ; 16-byte Folded Reload
 	add	sp, sp, #64                     ; =64
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_countersC2Ed  ; -- Begin function _ZN20performance_countersC2Ed
-	.weak_def_can_be_hidden	__ZN20performance_countersC2Ed
+	.globl	performance_counters::performance_counters(double)  ; -- Begin function _ZN20performance_countersC2Ed
+	.weak_def_can_be_hidden	performance_counters::performance_counters(double)
 	.p2align	2
-__ZN20performance_countersC2Ed:         ; @_ZN20performance_countersC2Ed
+performance_counters::performance_counters(double):         ; @_ZN20performance_countersC2Ed
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -770,10 +770,10 @@ __ZN20performance_countersC2Ed:         ; @_ZN20performance_countersC2Ed
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_countersC1Edddd ; -- Begin function _ZN20performance_countersC1Edddd
-	.weak_def_can_be_hidden	__ZN20performance_countersC1Edddd
+	.globl	performance_counters::performance_counters(double, double, double, double) ; -- Begin function _ZN20performance_countersC1Edddd
+	.weak_def_can_be_hidden	performance_counters::performance_counters(double, double, double, double)
 	.p2align	2
-__ZN20performance_countersC1Edddd:      ; @_ZN20performance_countersC1Edddd
+performance_counters::performance_counters(double, double, double, double):      ; @_ZN20performance_countersC1Edddd
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -794,7 +794,7 @@ __ZN20performance_countersC1Edddd:      ; @_ZN20performance_countersC1Edddd
 	ldr	d3, [sp, #8]
 	mov	x0, x8
 	str	x8, [sp]                        ; 8-byte Folded Spill
-	bl	__ZN20performance_countersC2Edddd
+	bl	performance_counters::performance_counters(double, double, double, double)
 	ldr	x8, [sp]                        ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #48]             ; 16-byte Folded Reload
@@ -802,10 +802,10 @@ __ZN20performance_countersC1Edddd:      ; @_ZN20performance_countersC1Edddd
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZN20performance_countersC2Edddd ; -- Begin function _ZN20performance_countersC2Edddd
-	.weak_def_can_be_hidden	__ZN20performance_countersC2Edddd
+	.globl	performance_counters::performance_counters(double, double, double, double) ; -- Begin function _ZN20performance_countersC2Edddd
+	.weak_def_can_be_hidden	performance_counters::performance_counters(double, double, double, double)
 	.p2align	2
-__ZN20performance_countersC2Edddd:      ; @_ZN20performance_countersC2Edddd
+performance_counters::performance_counters(double, double, double, double):      ; @_ZN20performance_countersC2Edddd
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -830,7 +830,7 @@ __ZN20performance_countersC2Edddd:      ; @_ZN20performance_countersC2Edddd
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
-__ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE: ; @_ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
+performance_counters& std::__1::forward<performance_counters&>(std::__1::remove_reference<performance_counters&>::type&): ; @_ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -842,7 +842,7 @@ __ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4type
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_
-__ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_
+std::__1::pair<performance_counters, performance_counters>::pair<performance_counters&, performance_counters&, false>(performance_counters&, performance_counters&): ; @_ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -859,7 +859,7 @@ __ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14
 	ldr	x2, [sp, #8]
 	mov	x0, x8
 	str	x8, [sp]                        ; 8-byte Folded Spill
-	bl	__ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_
+	bl	std::__1::pair<performance_counters, performance_counters>::pair<performance_counters&, performance_counters&, false>(performance_counters&, performance_counters&)
 	ldr	x8, [sp]                        ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
@@ -868,7 +868,7 @@ __ZNSt3__14pairI20performance_countersS1_EC1IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_
-__ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_
+std::__1::pair<performance_counters, performance_counters>::pair<performance_counters&, performance_counters&, false>(performance_counters&, performance_counters&): ; @_ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -883,14 +883,14 @@ __ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14
 	ldur	x8, [x29, #-8]
 	ldr	x0, [sp, #16]
 	str	x8, [sp]                        ; 8-byte Folded Spill
-	bl	__ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
+	bl	performance_counters& std::__1::forward<performance_counters&>(std::__1::remove_reference<performance_counters&>::type&)
 	ldr	q0, [x0]
 	ldr	x8, [sp]                        ; 8-byte Folded Reload
 	str	q0, [x8]
 	ldr	q0, [x0, #16]
 	str	q0, [x8, #16]
 	ldr	x0, [sp, #8]
-	bl	__ZNSt3__1L7forwardIR20performance_countersEEOT_RNS_16remove_referenceIS3_E4typeE
+	bl	performance_counters& std::__1::forward<performance_counters&>(std::__1::remove_reference<performance_counters&>::type&)
 	ldr	q0, [x0]
 	ldr	x8, [sp]                        ; 8-byte Folded Reload
 	str	q0, [x8, #32]
@@ -903,7 +903,7 @@ __ZNSt3__14pairI20performance_countersS1_EC2IRS1_S4_Lb0EEEOT_OT0_: ; @_ZNSt3__14
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::data() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -914,15 +914,15 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataEv: ; @_ZN
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv
-	bl	__ZNSt3__1L12__to_addressIKcEEPT_S3_
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_pointer() const
+	bl	char const* std::__1::__to_address<char const>(char const*)
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
 	ret
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__1L12__to_addressIKcEEPT_S3_
-__ZNSt3__1L12__to_addressIKcEEPT_S3_:   ; @_ZNSt3__1L12__to_addressIKcEEPT_S3_
+char const* std::__1::__to_address<char const>(char const*):   ; @_ZNSt3__1L12__to_addressIKcEEPT_S3_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -934,7 +934,7 @@ __ZNSt3__1L12__to_addressIKcEEPT_S3_:   ; @_ZNSt3__1L12__to_addressIKcEEPT_S3_
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_pointer() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointerEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -947,17 +947,17 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE13__get_pointer
 	ldur	x8, [x29, #-8]
 	mov	x0, x8
 	str	x8, [sp, #16]                   ; 8-byte Folded Spill
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__is_long() const
 	tbnz	w0, #0, LBB21_1
 	b	LBB21_2
 LBB21_1:
 	ldr	x0, [sp, #16]                   ; 8-byte Folded Reload
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_pointer() const
 	str	x0, [sp, #8]                    ; 8-byte Folded Spill
 	b	LBB21_3
 LBB21_2:
 	ldr	x0, [sp, #16]                   ; 8-byte Folded Reload
-	bl	__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_short_pointer() const
 	str	x0, [sp, #8]                    ; 8-byte Folded Spill
 LBB21_3:
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
@@ -968,7 +968,7 @@ LBB21_3:
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__is_long() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -979,7 +979,7 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv: ;
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
+	bl	std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first() const
 	ldrb	w8, [x0, #23]
 	mov	x9, x8
 	tst	x9, #0x80
@@ -991,7 +991,7 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__is_longEv: ;
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_long_pointer() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_pointerEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -1002,7 +1002,7 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_po
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
+	bl	std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first() const
 	ldr	x0, [x0]
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
@@ -1010,7 +1010,7 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE18__get_long_po
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv
-__ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__get_short_pointer() const: ; @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_pointerEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -1021,15 +1021,15 @@ __ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE19__get_short_p
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
-	bl	__ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_
+	bl	std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first() const
+	bl	std::__1::pointer_traits<char const*>::pointer_to(char const&)
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
 	ret
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
-__ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv: ; @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
+std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::first() const: ; @_ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_E5firstEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -1040,14 +1040,14 @@ __ZNKSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9alloca
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv
+	bl	std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__get() const
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
 	ret
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv
-__ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv: ; @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv
+std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__get() const: ; @_ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EE5__getEv
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -1059,7 +1059,7 @@ __ZNKSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9a
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_
-__ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_: ; @_ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_
+std::__1::pointer_traits<char const*>::pointer_to(char const&): ; @_ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -1070,14 +1070,14 @@ __ZNSt3__114pointer_traitsIPKcE10pointer_toERS1_: ; @_ZNSt3__114pointer_traitsIP
 	.cfi_offset w29, -16
 	str	x0, [sp, #8]
 	ldr	x0, [sp, #8]
-	bl	__ZNSt3__1L9addressofIKcEEPT_RS2_
+	bl	char const* std::__1::addressof<char const>(char const&)
 	ldp	x29, x30, [sp, #16]             ; 16-byte Folded Reload
 	add	sp, sp, #32                     ; =32
 	ret
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__1L9addressofIKcEEPT_RS2_
-__ZNSt3__1L9addressofIKcEEPT_RS2_:      ; @_ZNSt3__1L9addressofIKcEEPT_RS2_
+char const* std::__1::addressof<char const>(char const&):      ; @_ZNSt3__1L9addressofIKcEEPT_RS2_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -1089,7 +1089,7 @@ __ZNSt3__1L9addressofIKcEEPT_RS2_:      ; @_ZNSt3__1L9addressofIKcEEPT_RS2_
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
-__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc: ; @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
+std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<std::nullptr_t>(char const*): ; @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -1105,18 +1105,18 @@ __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc: ; @_
 	sub	x1, x29, #17                    ; =17
 	sub	x2, x29, #18                    ; =18
 	str	x8, [sp, #16]                   ; 8-byte Folded Spill
-	bl	__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_
+	bl	std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&, std::__1::__default_init_tag&&)
 	ldur	x1, [x29, #-16]
 	ldur	x8, [x29, #-16]
 	mov	x0, x8
 	str	x1, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZNSt3__111char_traitsIcE6lengthEPKc
+	bl	std::__1::char_traits<char>::length(char const*)
 	ldr	x8, [sp, #16]                   ; 8-byte Folded Reload
 	str	x0, [sp]                        ; 8-byte Folded Spill
 	mov	x0, x8
 	ldr	x1, [sp, #8]                    ; 8-byte Folded Reload
 	ldr	x2, [sp]                        ; 8-byte Folded Reload
-	bl	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm
+	bl	std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__init(char const*, unsigned long)
 	ldr	x0, [sp, #16]                   ; 8-byte Folded Reload
 	ldp	x29, x30, [sp, #48]             ; 16-byte Folded Reload
 	add	sp, sp, #64                     ; =64
@@ -1124,7 +1124,7 @@ __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc: ; @_
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_
-__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_: ; @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_
+std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&, std::__1::__default_init_tag&&): ; @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC1INS_18__default_init_tagESA_EEOT_OT0_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -1141,7 +1141,7 @@ __ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocat
 	ldr	x2, [sp, #8]
 	mov	x0, x8
 	str	x8, [sp]                        ; 8-byte Folded Spill
-	bl	__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_
+	bl	std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&, std::__1::__default_init_tag&&)
 	ldr	x8, [sp]                        ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
@@ -1149,10 +1149,10 @@ __ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocat
 	ret
 	.cfi_endproc
                                         ; -- End function
-	.globl	__ZNSt3__111char_traitsIcE6lengthEPKc ; -- Begin function _ZNSt3__111char_traitsIcE6lengthEPKc
-	.weak_definition	__ZNSt3__111char_traitsIcE6lengthEPKc
+	.globl	std::__1::char_traits<char>::length(char const*) ; -- Begin function _ZNSt3__111char_traitsIcE6lengthEPKc
+	.weak_definition	std::__1::char_traits<char>::length(char const*)
 	.p2align	2
-__ZNSt3__111char_traitsIcE6lengthEPKc:  ; @_ZNSt3__111char_traitsIcE6lengthEPKc
+std::__1::char_traits<char>::length(char const*):  ; @_ZNSt3__111char_traitsIcE6lengthEPKc
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #32                     ; =32
@@ -1170,7 +1170,7 @@ __ZNSt3__111char_traitsIcE6lengthEPKc:  ; @_ZNSt3__111char_traitsIcE6lengthEPKc
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_
-__ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_: ; @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_
+std::__1::__compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> >::__compressed_pair<std::__1::__default_init_tag, std::__1::__default_init_tag>(std::__1::__default_init_tag&&, std::__1::__default_init_tag&&): ; @_ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repES5_EC2INS_18__default_init_tagESA_EEOT_OT0_
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #64                     ; =64
@@ -1185,16 +1185,16 @@ __ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocat
 	ldur	x8, [x29, #-8]
 	ldur	x0, [x29, #-16]
 	str	x8, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE
+	bl	std::__1::__default_init_tag&& std::__1::forward<std::__1::__default_init_tag>(std::__1::remove_reference<std::__1::__default_init_tag>::type&)
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
-	bl	__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE
+	bl	std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__compressed_pair_elem(std::__1::__default_init_tag)
 	ldr	x8, [sp, #24]
 	mov	x0, x8
-	bl	__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE
+	bl	std::__1::__default_init_tag&& std::__1::forward<std::__1::__default_init_tag>(std::__1::remove_reference<std::__1::__default_init_tag>::type&)
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
-	bl	__ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE
+	bl	std::__1::__compressed_pair_elem<std::__1::allocator<char>, 1, true>::__compressed_pair_elem(std::__1::__default_init_tag)
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #48]             ; 16-byte Folded Reload
@@ -1203,7 +1203,7 @@ __ZNSt3__117__compressed_pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocat
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE
-__ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE: ; @_ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE
+std::__1::__default_init_tag&& std::__1::forward<std::__1::__default_init_tag>(std::__1::remove_reference<std::__1::__default_init_tag>::type&): ; @_ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typeE
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -1215,7 +1215,7 @@ __ZNSt3__1L7forwardINS_18__default_init_tagEEEOT_RNS_16remove_referenceIS2_E4typ
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE
-__ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE: ; @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE
+std::__1::__compressed_pair_elem<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, 0, false>::__compressed_pair_elem(std::__1::__default_init_tag): ; @_ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5__repELi0ELb0EEC2ENS_18__default_init_tagE
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
@@ -1227,7 +1227,7 @@ __ZNSt3__122__compressed_pair_elemINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE
-__ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE: ; @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE
+std::__1::__compressed_pair_elem<std::__1::allocator<char>, 1, true>::__compressed_pair_elem(std::__1::__default_init_tag): ; @_ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_init_tagE
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #48                     ; =48
@@ -1240,7 +1240,7 @@ __ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_i
 	ldr	x8, [sp, #16]
 	mov	x0, x8
 	str	x8, [sp, #8]                    ; 8-byte Folded Spill
-	bl	__ZNSt3__19allocatorIcEC2Ev
+	bl	std::__1::allocator<char>::allocator()
 	ldr	x8, [sp, #8]                    ; 8-byte Folded Reload
 	mov	x0, x8
 	ldp	x29, x30, [sp, #32]             ; 16-byte Folded Reload
@@ -1249,7 +1249,7 @@ __ZNSt3__122__compressed_pair_elemINS_9allocatorIcEELi1ELb1EEC2ENS_18__default_i
 	.cfi_endproc
                                         ; -- End function
 	.p2align	2                               ; -- Begin function _ZNSt3__19allocatorIcEC2Ev
-__ZNSt3__19allocatorIcEC2Ev:            ; @_ZNSt3__19allocatorIcEC2Ev
+std::__1::allocator<char>::allocator():            ; @_ZNSt3__19allocatorIcEC2Ev
 	.cfi_startproc
 ; %bb.0:
 	sub	sp, sp, #16                     ; =16
