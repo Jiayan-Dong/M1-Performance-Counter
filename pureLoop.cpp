@@ -23,20 +23,20 @@ int a[10000];
 
 int sum() {
     int s = 0;
-    for(int i = 0; i < 10000; ++i)
+    for(int i = 0; i < 1000000; ++i)
         s += i;
     return s;
 }
 
 void genRand(){
     srand(time(NULL));
-    for(int i = 0; i < 10000; ++i)
+    for(int i = 0; i < 1000000; ++i)
         a[i] = rand() % 2;
 }
 
 int randnum(){
     int s = 0;
-    for(int i = 0; i < 10000; ++i)
+    for(int i = 0; i < 1000000; ++i)
         if(a[i])
             s++;
     return s;
@@ -95,7 +95,7 @@ int main() {
         agg_min = agg_min.min(diff);
         agg_avg += diff;
     }
-    agg_avg /= 100;
+    agg_avg /= 1000000;
     agg_min /= 1;
     pretty_print("int", std::make_pair(agg_min, agg_avg));
     return EXIT_SUCCESS;
